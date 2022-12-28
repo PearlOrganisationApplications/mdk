@@ -60,137 +60,138 @@ class _ActivateTagState extends State<ActivateTag> {
       backgroundColor: const Color(0xfff1f1f1),
       // context and builder are
       // required properties in this widget
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+            topRight: Radius.circular(40.0),
+            topLeft: Radius.circular(40.0)
+        ),
+      ),
       context: context,
       builder: (context1) {
         // we set up a container inside which
         // we create center column and display text
-        return Column(
-          children: [
-            GestureDetector(
-              onTap: (){
-                Navigator.pop(context);
-              },
-              child: Container(
-                width: width,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  //mainAxisSize: MainAxisSize.max,
-                  children: <Widget>[
-                    Expanded(
-                      child: Center(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10)
+        return SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 300),
+                child: Icon(Icons.keyboard_arrow_down_outlined,color: Colors.grey,size: ResponsiveFlutter.of(context).fontSize(4.8)),
+              ) ,
+              GestureDetector(
+                onTap: (){
+                  Navigator.pop(context);
+                },
+                child: Container(
+                  width: width,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    //mainAxisSize: MainAxisSize.max,
+                    children: <Widget>[
+                      Expanded(
+                        child: Center(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10)
+                            ),
+                              margin: EdgeInsets.only(top: height*0.06),
+                              child:const Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Icon(Icons.document_scanner_outlined,color: Colors.black,size: 120,),
+                              )
                           ),
-                            margin: EdgeInsets.only(top: height*0.06),
-                            child:const Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Icon(Icons.document_scanner_outlined,color: Colors.black,size: 120,),
-                            )
                         ),
                       ),
-                    ),
-                    Icon(Icons.keyboard_arrow_down_outlined,color: Colors.grey,size: ResponsiveFlutter.of(context).fontSize(4.8),)
-                  ],
+                    ],
+                  ),
                 ),
-
               ),
-            ),
-
-
-            GestureDetector(
-              onTap: (){
-                // __showChangeUsernameDialog(constraints,context);
-                // const snackBar = SnackBar(
-                //   content: Text('Copied to clipboard'),
-                // );
-                // ScaffoldMessenger.of(context).showSnackBar(snackBar);
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-
-                  Padding(
-                    padding: EdgeInsets.only(top: height*0.02,bottom: height*0.02),
-                    child: Container(
-                        child: Text('Scan Qr Code',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),textAlign: TextAlign.center,)
-                    ),
-                  )
-                ],
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(left: width*0.15,right:width*0.15,top:height*0.05),
-              child: Material(
-                  borderRadius: BorderRadius.circular(10),
-                  elevation: 10.0,
-                  shadowColor: Colors.black,
-                  child: TextFormField(
-                    cursorColor: Colors.black,
-                    decoration: InputDecoration(
-                        hintText: 'Activation Code',
-                        fillColor: Colors.white,
-                        filled: true,
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: const BorderSide(
-                              color: Colors.white,
-                              style: BorderStyle.solid,
-                              width: 3),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: const BorderSide(
-                              color: Colors.white,
-                              style: BorderStyle.solid,
-                              width: 3),
-                        ),
-                        labelStyle: const TextStyle(color: Colors.black)),
-                  )
-              ),
-            ),
-            const SizedBox(height: 10,),
-
-            Text('Enter the activation code',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),textAlign: TextAlign.center,),
-            const SizedBox(height: 20,),
-
-            GestureDetector(
-              onTap: (){
-                // __showChangePasswordDialog(constraints,context);
-                // __showChangePasswordDialog(constraints,context);
-
-                // const snackBar = SnackBar(
-                //   content: Text('Copied to clipboard'),
-                // );
-                // ScaffoldMessenger.of(context).showSnackBar(snackBar);
-              },
-              child: Container(
-                margin: EdgeInsets.only(left: width*0.05,right: width*0.05,top: height*0.01),
-                width: width,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.white,
-                ),
+              GestureDetector(
+                onTap: (){
+                  // __showChangeUsernameDialog(constraints,context);
+                  // const snackBar = SnackBar(
+                  //   content: Text('Copied to clipboard'),
+                  // );
+                  // ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-
                     Padding(
-                      padding: EdgeInsets.only(left: width*0.05,right: width*0.05,top: height*0.02,bottom: height*0.02),
-                      child: Text('Activate tag',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6),fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                      padding: EdgeInsets.only(top: height*0.02,bottom: height*0.02),
+                      child: Container(
+                          child: Text('Scan Qr Code',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),textAlign: TextAlign.center,)
+                      ),
                     )
                   ],
                 ),
-
               ),
-            ),
+              Container(
+                margin: EdgeInsets.only(left: width*0.15,right:width*0.15,top:height*0.05),
+                child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
 
+                    child: TextFormField(
+                      cursorColor: Colors.black,
+                      decoration: InputDecoration(
+                          hintText: 'Activation Code',
+                          fillColor: Colors.white,
+                          filled: true,
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: const BorderSide(
+                                color: Colors.white,
+                                style: BorderStyle.solid,
+                                width: 3),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: const BorderSide(
+                                color: Colors.white,
+                                style: BorderStyle.solid,
+                                width: 3),
+                          ),
+                          labelStyle: const TextStyle(color: Colors.black)),
+                    )
+                ),
+              ),
+              const SizedBox(height: 10,),
+              Text('Enter the activation code',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),textAlign: TextAlign.center,),
+              const SizedBox(height: 20,),
+              GestureDetector(
+                onTap: (){
+                  // __showChangePasswordDialog(constraints,context);
+                  // __showChangePasswordDialog(constraints,context);
 
-
-          ],
+                  // const snackBar = SnackBar(
+                  //   content: Text('Copied to clipboard'),
+                  // );
+                  // ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                },
+                child: Container(
+                  margin: EdgeInsets.only(left: width*0.05,right: width*0.05,top: height*0.01,bottom: height*0.02),
+                  width: width,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.white,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: width*0.05,right: width*0.05,top: height*0.02,bottom: height*0.02),
+                        child: Text('Activate tag',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6),fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         );
       },
     );

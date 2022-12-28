@@ -109,26 +109,44 @@ class _VerifyTokenState extends State<VerifyToken> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.end,
             //crossAxisAlignment: CrossAxisAlignment.,
             children: [
               SizedBox(
                 child: Stack(
                   children: [
-                    Image.asset("assets/onboard.jpg", fit: BoxFit.contain ,
-                      width: MediaQuery.of(context).size.width, height: MediaQuery.of(context).size.height - 100 ,),
-                    Column(
-                      children: const [
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
-                          child: Text("First, Verify you have our card", textAlign: TextAlign.center, style: TextStyle(fontFamily: "JosefinSans",fontSize: 35, fontWeight: FontWeight.bold, color: Colors.black),),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(15.0),
-                          child: Text("Use the Token provided by mail", textAlign: TextAlign.center, style: TextStyle(fontFamily: "JosefinSans",fontSize: 25, color: Colors.black),),
-                        ),
-                      ],
+                    Padding(
+                      padding: const EdgeInsets.only(top: 200),
+                      child: Image.asset("assets/onboard.jpg", fit: BoxFit.contain ,
+                        alignment: Alignment.bottomCenter,
+                        //width: MediaQuery.of(context).size.width, height: MediaQuery.of(context).size.height - 90 ,
+                      ),
                     ),
+                    // Column(
+                    //   children: const [
+                    //     Padding(
+                    //       padding: EdgeInsets.fromLTRB(15, 35, 15, 0),
+                    //       child: Text("First, Verify you have our card", textAlign: TextAlign.center, style: TextStyle(fontFamily: "JosefinSans",fontSize: 35, fontWeight: FontWeight.bold, color: Colors.black),),
+                    //     ),
+                    //     Padding(
+                    //       padding: EdgeInsets.all(15.0),
+                    //       child: Text("Use the Token provided by mail", textAlign: TextAlign.center, style: TextStyle(fontFamily: "JosefinSans",fontSize: 25, color: Colors.black),),
+                    //     ),
+                    //   ],
+                    // ),
+                    Padding(
+                      padding: const EdgeInsets.all(28.0),
+                      child: RichText(
+                        text: TextSpan(
+                          style: TextStyle(color: Colors.black, fontSize: 25),
+                          children: <TextSpan>[
+                            TextSpan(text: 'First, Verify you have our card ', style: TextStyle(color: Colors.blue,fontWeight: FontWeight.bold)),
+                            TextSpan(text: 'Use the Token provided by mail',style: TextStyle(fontSize: 25,color:Colors.black38 )),
+
+                          ],
+                        ),
+                      ),
+                    )
                   ],
                 ),
               ),

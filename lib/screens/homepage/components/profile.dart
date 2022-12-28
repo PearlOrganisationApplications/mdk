@@ -10,6 +10,7 @@ import 'dart:io';
 
 import '../../../bloc/HomepageBloc/homepage_bloc.dart';
 import '../../../bloc/profileBloc/profile_event.dart';
+import 'package:avatar_glow/avatar_glow.dart';
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
 
@@ -120,376 +121,390 @@ bool getTheImage = false;
            backgroundColor: Colors.transparent,
 
          resizeToAvoidBottomInset: false,
-            body: Container(
-              width: constraints.maxWidth,
-              margin: EdgeInsets.only(left: constraints.maxWidth*0.03,top: constraints.maxWidth*0.01),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      InkWell(
-                        onTap: (){
-                          showModalBottomSheet<void>(
-                              shape: const OutlineInputBorder(
-                              borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight:Radius.circular(20))
-                            ),
-                            context: context,
-                              builder: (BuildContext context) {
-                              return Container(
-                                height: height * 0.5,
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children:   [
-                                        GestureDetector(
-                                            onTap: (){
-                                              Navigator.pop(context);
-                                              },
-                                            child: const Padding(
-                                              padding: EdgeInsets.all(16.0),
-                                              child: Icon(Icons.arrow_drop_down_sharp,size: 40,),
-                                            )),
-                                      ],
-                                    ),
-                                    Container(
-                                    width: width*0.2,
-                                    height: height *0.085,
-                                      decoration:   BoxDecoration(
-                                        color: Colors.grey.shade300,
-                                            borderRadius: BorderRadius.all(Radius.circular(15)),),
-                                      child: Icon(Icons.photo,size: 50,),
-                                    ),
-                                    Padding(
-                                      padding:   EdgeInsets.only(top: height* 0.02),
-                                      child: const Text("Upload Profile Picture",style: TextStyle(fontSize: 25,fontWeight: FontWeight.w600),),
-                                    ),
-                                    Padding(
-                                      padding:   EdgeInsets.only(top: height* 0.02),
-                                      child: const Text("Select picture from device/camera",style: TextStyle(fontSize: 18,fontWeight: FontWeight.w400),),
-                                    ),
-                                    Align(
-                                      alignment: Alignment.bottomCenter,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(20.0),
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                          children: [
-                                            InkWell(
-                                              onTap:(){
-                                                openGallery();
-                                                getTheImage = true;
-                                             },
-                                              child: Container(
-                                                alignment: Alignment.center,
-                                                width: width /2.5,
-                                                height: height* 0.10,
-                                                decoration:   BoxDecoration(
-                                                  color: Colors.grey.shade300,
-                                                  borderRadius: BorderRadius.all(Radius.circular(15)),),
-                                                child: Text("Select from device",style: const TextStyle(fontWeight: FontWeight.w700),),
-                                              ),
-                                            ),
-                                            InkWell(
+            body: SingleChildScrollView(
+              child: Container(
+                width: constraints.maxWidth,
+                margin: EdgeInsets.only(left: constraints.maxWidth*0.03,top: constraints.maxWidth*0.01),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        InkWell(
+                          onTap: (){
+                            showModalBottomSheet<void>(
+                                shape: const OutlineInputBorder(
+                                borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight:Radius.circular(20))
+                              ),
+                              context: context,
+                                builder: (BuildContext context) {
+                                return Container(
+                                  height: height * 0.5,
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.end,
+                                        children:   [
+                                          GestureDetector(
                                               onTap: (){
-                                                openCamera();
-                                                getTheImage = true;
-                                              },
-                                              child: Container(
-                                                alignment: Alignment.center,
-                                                width: width /2.5,
-                                                height: height* 0.10,
-                                                decoration:   BoxDecoration(
-                                                  color: Colors.grey.shade300,
-                                                  borderRadius: BorderRadius.all(Radius.circular(15)),),
-                                                child: const Text("Select from camera",style: TextStyle(fontWeight: FontWeight.w700),),
-                                              ),
-                                            )
-                                          ],
-                                        ),
+                                                Navigator.pop(context);
+                                                },
+                                              child: const Padding(
+                                                padding: EdgeInsets.all(16.0),
+                                                child: Icon(Icons.arrow_drop_down_sharp,size: 40,),
+                                              )),
+                                        ],
                                       ),
-                                    )
-                                  ],
+                                      Container(
+                                      width: width*0.2,
+                                      height: height *0.085,
+                                        decoration:   BoxDecoration(
+                                          color: Colors.grey.shade300,
+                                              borderRadius: BorderRadius.all(Radius.circular(15)),),
+                                        child: Icon(Icons.photo,size: 50,),
+                                      ),
+                                      Padding(
+                                        padding:   EdgeInsets.only(top: height* 0.02),
+                                        child: const Text("Upload Profile Picture",style: TextStyle(fontSize: 25,fontWeight: FontWeight.w600),),
+                                      ),
+                                      Padding(
+                                        padding:   EdgeInsets.only(top: height* 0.02),
+                                        child: const Text("Select picture from device/camera",style: TextStyle(fontSize: 18,fontWeight: FontWeight.w400),),
+                                      ),
+                                      Align(
+                                        alignment: Alignment.bottomCenter,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(20.0),
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              InkWell(
+                                                onTap:(){
+                                                  openGallery();
+                                                  getTheImage = true;
+                                               },
+                                                child: Container(
+                                                  alignment: Alignment.center,
+                                                  width: width /2.5,
+                                                  height: height* 0.10,
+                                                  decoration:   BoxDecoration(
+                                                    color: Colors.grey.shade300,
+                                                    borderRadius: BorderRadius.all(Radius.circular(15)),),
+                                                  child: Text("Select from device",style: const TextStyle(fontWeight: FontWeight.w700),),
+                                                ),
+                                              ),
+                                              InkWell(
+                                                onTap: (){
+                                                  openCamera();
+                                                  getTheImage = true;
+                                                },
+                                                child: Container(
+                                                  alignment: Alignment.center,
+                                                  width: width /2.5,
+                                                  height: height* 0.10,
+                                                  decoration:   BoxDecoration(
+                                                    color: Colors.grey.shade300,
+                                                    borderRadius: BorderRadius.all(Radius.circular(15)),),
+                                                  child: const Text("Select from camera",style: TextStyle(fontWeight: FontWeight.w700),),
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                );
+                                }
+                            );
+                          },
+                          child: Stack(
+                            children: [
+                              Container(
+                                width: constraints.maxWidth*0.3,
+                                height: constraints.maxHeight*0.3,
+                                  decoration:BoxDecoration(
+                                      shape: BoxShape.circle,
+                                    color: Colors.grey.withOpacity(0.5)
+                                  ),
+                                 child: Center(child: !getTheImage ?  Icon(Icons.person,size: constraints.maxHeight*0.1,color: Colors.blue,)
+                                    :Center(
+                                      child: Container(
+                                          width: constraints.maxWidth*0.3,
+                                          height: constraints.maxHeight*0.3,
+                                          decoration:BoxDecoration(
+                                              shape: BoxShape.circle,
+                                            color: Colors.red,
+                                            image: DecorationImage(
+                                              image:  FileImage(imageFile!),
+                                              fit: BoxFit.fill
+                                            )
+                                   ),
+                                /*   child:Image(image: FileImage(File(imagePathOnPickImage)
+                                   ),fit: BoxFit.contain,
+
+
+                                   )*/
                                 ),
-                              );
+                                    ),
+                              ),),
+                             !onTapping ? Positioned(
+                                bottom: constraints.maxHeight*0.03,right: 5,
+                                child: Padding(padding: EdgeInsets.all(5),
+                                  child: Container(
+                                    width: constraints.maxWidth *0.09,
+                                    height:constraints.maxHeight* 0.09,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                        color: Colors.white
+                                    ),
+                                    child: Center(
+                                      child: Icon(Icons.edit,size: constraints.maxHeight*0.03,color: Colors.black,
+                                  ),
+                                    ),
+
+                                ),
+                              )
+                              ) : Container()],
+                          ),
+                        ),
+
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Container(
+                                width: constraints.maxWidth,
+                                // color: Colors.black,
+                                margin: EdgeInsets.only(left: constraints.maxWidth*0.04,right: constraints.maxWidth*0.04),
+                                child: !onTapping ?
+                                // Container(
+                                //   child: TextFormField(
+                                //     // onChanged: (email)=>context.read<SignUpBloc>().add(SignUpEmailChanged(email:email)),
+                                //     // cursorColor: Colors.black,
+                                //     decoration:
+                                //     InputDecoration(
+                                //         hintText: 'Name',
+                                //         hintStyle: const TextStyle(fontWeight: FontWeight.bold,),
+                                //          fillColor: Colors.black38,
+                                //
+                                //         filled: true,
+                                //         focusedBorder: OutlineInputBorder(
+                                //           borderRadius: BorderRadius.circular(10),
+                                //           // borderSide: const BorderSide(
+                                //           //     color: Colors.white,
+                                //           //     style: BorderStyle.solid,
+                                //           //     width: 3),
+                                //         ),
+                                //         enabledBorder:  OutlineInputBorder(
+                                //           borderRadius: BorderRadius.circular(10),
+                                //           // borderSide: const BorderSide(
+                                //           //      color: Colors.white,
+                                //           //     style: BorderStyle.solid,
+                                //           //     width: 3),
+                                //         ),
+                                //         labelStyle: const TextStyle(color: Colors.black))  ,
+                                //   ),
+                                //
+                                // )
+                                nameContainer()
+                                    : Material(
+                                 color: Colors.transparent,
+
+
+                                  child: TextFormField(
+                                    // onChanged: (email)=>context.read<SignUpBloc>().add(SignUpEmailChanged(email:email)),
+                                    cursorColor: Colors.black,
+                                    decoration:
+                                    InputDecoration(
+                                        hintStyle: const TextStyle(fontWeight: FontWeight.bold),
+                                        fillColor: Colors.transparent,
+                                        filled: true,
+                                        enabled: false,
+                                        focusedBorder: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(10),
+                                          borderSide: const BorderSide(
+                                              color: Colors.white,
+                                              style: BorderStyle.solid,
+                                              width: 3),
+                                        ),
+                                        enabledBorder:  OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(10),
+                                          borderSide: const BorderSide(
+                                              color: Colors.white,
+                                              style: BorderStyle.solid,
+                                              width: 3),
+                                        ),
+                                        labelStyle: const TextStyle(color: Colors.black))  ,
+                                  ),
+
+                                ),
+                              ),
+                              const SizedBox(height: 10,),
+                              Container(
+                                width: constraints.maxWidth,
+                                // color: Colors.black,
+                                margin: EdgeInsets.only(left: constraints.maxWidth*0.04,right: constraints.maxWidth*0.04),
+                                child: !onTapping ? Container(
+                                  // borderRadius: BorderRadius.circular(10),
+                                  // elevation: 10.0,
+                                  // shadowColor: Colors.black,
+                                  child: writeContainer(),
+                                  // child: TextFormField(
+                                  //   // onChanged: (email)=>context.read<SignUpBloc>().add(SignUpEmailChanged(email:email)),
+                                  //   cursorColor: Colors.black,
+                                  //   decoration: InputDecoration(
+                                  //       hintText: 'Write something about you and your brand',
+                                  //       fillColor: Colors.white,
+                                  //       filled: true,
+                                  //       focusedBorder: OutlineInputBorder(
+                                  //         borderRadius: BorderRadius.circular(10),
+                                  //         borderSide: const BorderSide(
+                                  //             color: Colors.white,
+                                  //             style: BorderStyle.solid,
+                                  //             width: 3),
+                                  //       ),
+                                  //       enabledBorder: OutlineInputBorder(
+                                  //         borderRadius: BorderRadius.circular(10),
+                                  //         borderSide: const BorderSide(
+                                  //             color: Colors.white,
+                                  //             style: BorderStyle.solid,
+                                  //             width: 3),
+                                  //       ),
+                                  //       labelStyle: const TextStyle(color: Colors.black)),
+                                  // ),
+
+                                ) : Material(
+
+                                  color: Colors.transparent,
+                                  child: TextFormField(
+                                    // onChanged: (email)=>context.read<SignUpBloc>().add(SignUpEmailChanged(email:email)),
+                                    cursorColor: Colors.black,
+                                    decoration: InputDecoration(
+                                      enabled: false,
+                                        hintText: '',
+                                        fillColor: Colors.transparent,
+                                        filled: true,
+                                        focusedBorder: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(10),
+                                          borderSide: const BorderSide(
+                                              color: Colors.transparent,
+                                              style: BorderStyle.solid,
+                                              width: 3),
+                                        ),
+                                        enabledBorder: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(10),
+                                          borderSide: const BorderSide(
+                                              color: Colors.white,
+                                              style: BorderStyle.solid,
+                                              width: 3),
+                                        ),
+                                        labelStyle: const TextStyle(color: Colors.black)),
+                                  ),
+
+                                ),
+                              ) ,
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                    GestureDetector(
+                      onTap: (){
+                        setState(() {
+                          if(mounted)
+                          {
+                            onTapping=!onTapping;
+                            if(onTapping)
+                              {
+                                editProfile="Edit Profile";
                               }
-                          );
-                        },
-                        child: Stack(
-                          children: [
-                            Container(
-                              width: constraints.maxWidth*0.3,
-                              height: constraints.maxHeight*0.3,
-                                decoration:BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  color: Colors.grey.withOpacity(0.5)
-                                ),
-                               child: Center(child: !getTheImage ?  Icon(Icons.person,size: constraints.maxHeight*0.1,color: Colors.blue,)
-                                  :Center(
-                                    child: Container(
-                                        width: constraints.maxWidth*0.3,
-                                        height: constraints.maxHeight*0.3,
-                                        decoration:BoxDecoration(
-                                            shape: BoxShape.circle,
-                                          color: Colors.red,
-                                          image: DecorationImage(
-                                            image:  FileImage(imageFile!),
-                                            fit: BoxFit.fill
-                                          )
-                                 ),
-                              /*   child:Image(image: FileImage(File(imagePathOnPickImage)
-                                 ),fit: BoxFit.contain,
+                            else
+                              {
+                                editProfile="Profile Preview ";
+                              }
+                          }
+                        });
 
-
-                                 )*/
-                              ),
-                                  ),
-                            ),),
-                           !onTapping ? Positioned(
-                              bottom: constraints.maxHeight*0.03,right: 5,
-                              child: Padding(padding: EdgeInsets.all(5),
-                                child: Container(
-                                  width: constraints.maxWidth *0.09,
-                                  height:constraints.maxHeight* 0.09,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                      color: Colors.white
-                                  ),
-                                  child: Center(
-                                    child: Icon(Icons.edit,size: constraints.maxHeight*0.03,color: Colors.black,
-                                ),
-                                  ),
-
-                              ),
-                            )
-                            ) : Container()],
+                      },
+                      child: Container(
+                        width: constraints.maxWidth*0.8,
+                          margin: EdgeInsets.only(left: constraints.maxWidth*0.05,right: constraints.maxWidth*0.05),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20.0),
+                            border: Border.all(color: Colors.black38),
+                            color: Colors.white,
+                            // boxShadow:const [
+                            //   BoxShadow(
+                            //     color: Colors.black,
+                            //     blurRadius: 2.0,
+                            //     spreadRadius: 0.0,
+                            //     offset: Offset(2.0, 2.0,), // shadow direction: bottom right
+                            //   )
+                            // ],
+                          ),
+                        child: Padding(
+                          padding: EdgeInsets.only(left: constraints.maxWidth*0.05,right: constraints.maxWidth*0.05,top: constraints.maxHeight*0.02,bottom: constraints.maxHeight*0.02),
+                          child:  Text(editProfile,textAlign: TextAlign.center,style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),),
                         ),
                       ),
+                    ),
+                    const SizedBox(height: 30,),
+                    onTapping?Container():Container(
+                     // elevation: 1,
+                       // shadowColor: Colors.black,
+                     // borderRadius: BorderRadius.circular(10),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                          borderRadius: BorderRadius.circular(20.0),
+                        border: Border.all(color: Colors.black38)
+                      ),
 
-                      Expanded(
+                      child: Container(
+                        margin: EdgeInsets.only(top: constraints.maxHeight*0.01,left: constraints.maxWidth*0.05,right: constraints.maxWidth*0.05),
+
+                        width: constraints.maxWidth*0.8,
                         child: Column(
                           children: [
                             Container(
-                              width: constraints.maxWidth,
-                              // color: Colors.black,
-                              margin: EdgeInsets.only(left: constraints.maxWidth*0.04,right: constraints.maxWidth*0.04),
-                              child: !onTapping ? Material(
-                                 borderRadius:      BorderRadius.circular(10)  ,
-                                elevation: 10.0,
-                                shadowColor: Colors.black,
-                                child: TextFormField(
-                                  // onChanged: (email)=>context.read<SignUpBloc>().add(SignUpEmailChanged(email:email)),
-                                  cursorColor: Colors.black,
-                                  decoration:
-                                  InputDecoration(
-                                      hintText: 'Name',
-                                      hintStyle: const TextStyle(fontWeight: FontWeight.bold),
-                                      fillColor: Colors.white,
-                                      filled: true,
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                        borderSide: const BorderSide(
-                                            color: Colors.white,
-                                            style: BorderStyle.solid,
-                                            width: 3),
-                                      ),
-                                      enabledBorder:  OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                        borderSide: const BorderSide(
-                                            color: Colors.white,
-                                            style: BorderStyle.solid,
-                                            width: 3),
-                                      ),
-                                      labelStyle: const TextStyle(color: Colors.black))  ,
+                                margin:EdgeInsets.only(top: constraints.maxHeight*0.02),
+                                child: Text('There are no links in your profile.',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(2.0),fontWeight: FontWeight.bold),)),
+                            const SizedBox(height: 20,),
+                            GestureDetector(
+                              onTap: (){
+                                context.read<ProfileBloc>().add(AddLinkClicked());
+                              },
+                              child: AvatarGlow(
+                                glowColor: Colors.blue,
+                                endRadius: 80,
+                                duration: Duration(milliseconds: 2500),
+                                repeat: true,
+                                showTwoGlows: true,
+                                repeatPauseDuration: Duration(milliseconds:150 ),
+
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(15.0),
+                                    color: Colors.white,
+                                    border: Border.all(color: Colors.black38),
+
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsets.only(left:constraints.maxWidth*0.05,right: constraints.maxWidth*0.05,top: constraints.maxHeight*0.03,bottom: constraints.maxHeight*0.03),
+                                    child: Icon(Icons.add,size: 50,),
+                                  ),
                                 ),
-
-                              ) : Material(
-                               color: Colors.transparent,
-
-
-                                child: TextFormField(
-                                  // onChanged: (email)=>context.read<SignUpBloc>().add(SignUpEmailChanged(email:email)),
-                                  cursorColor: Colors.black,
-                                  decoration:
-                                  InputDecoration(
-                                      hintStyle: const TextStyle(fontWeight: FontWeight.bold),
-                                      fillColor: Colors.transparent,
-                                      filled: true,
-                                      enabled: false,
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                        borderSide: const BorderSide(
-                                            color: Colors.white,
-                                            style: BorderStyle.solid,
-                                            width: 3),
-                                      ),
-                                      enabledBorder:  OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                        borderSide: const BorderSide(
-                                            color: Colors.white,
-                                            style: BorderStyle.solid,
-                                            width: 3),
-                                      ),
-                                      labelStyle: const TextStyle(color: Colors.black))  ,
-                                ),
-
                               ),
                             ),
-                            const SizedBox(height: 10,),
                             Container(
-                              width: constraints.maxWidth,
-                              // color: Colors.black,
-                              margin: EdgeInsets.only(left: constraints.maxWidth*0.04,right: constraints.maxWidth*0.04),
-                              child: !onTapping ? Material(
-                                borderRadius: BorderRadius.circular(10),
-                                elevation: 10.0,
-                                shadowColor: Colors.black,
-                                child: TextFormField(
-                                  // onChanged: (email)=>context.read<SignUpBloc>().add(SignUpEmailChanged(email:email)),
-                                  cursorColor: Colors.black,
-                                  decoration: InputDecoration(
-                                      hintText: 'Write something about you and your brand',
-                                      fillColor: Colors.white,
-                                      filled: true,
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                        borderSide: const BorderSide(
-                                            color: Colors.white,
-                                            style: BorderStyle.solid,
-                                            width: 3),
-                                      ),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                        borderSide: const BorderSide(
-                                            color: Colors.white,
-                                            style: BorderStyle.solid,
-                                            width: 3),
-                                      ),
-                                      labelStyle: const TextStyle(color: Colors.black)),
-                                ),
-
-                              ) : Material(
-
-                                color: Colors.transparent,
-                                child: TextFormField(
-                                  // onChanged: (email)=>context.read<SignUpBloc>().add(SignUpEmailChanged(email:email)),
-                                  cursorColor: Colors.black,
-                                  decoration: InputDecoration(
-                                    enabled: false,
-                                      hintText: '',
-                                      fillColor: Colors.transparent,
-                                      filled: true,
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                        borderSide: const BorderSide(
-                                            color: Colors.transparent,
-                                            style: BorderStyle.solid,
-                                            width: 3),
-                                      ),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                        borderSide: const BorderSide(
-                                            color: Colors.white,
-                                            style: BorderStyle.solid,
-                                            width: 3),
-                                      ),
-                                      labelStyle: const TextStyle(color: Colors.black)),
-                                ),
-
-                              ),
-                            ) ,
+                                margin:EdgeInsets.only(top: constraints.maxHeight*0.02,bottom: constraints.maxHeight*0.02),
+                                child: Text('Add link',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),)),
                           ],
                         ),
-                      )
-                    ],
-                  ),
-                  GestureDetector(
-                    onTap: (){
-                      setState(() {
-                        if(mounted)
-                        {
-                          onTapping=!onTapping;
-                          if(onTapping)
-                            {
-                              editProfile="Edit Profile";
-                            }
-                          else
-                            {
-                              editProfile="Profile Preview ";
-                            }
-                        }
-                      });
-
-                    },
-                    child: Container(
-                      width: constraints.maxWidth*0.8,
-                        margin: EdgeInsets.only(left: constraints.maxWidth*0.05,right: constraints.maxWidth*0.05),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8.0),
-                          color: Colors.white,
-                          boxShadow:const [
-                            BoxShadow(
-                              color: Colors.black,
-                              blurRadius: 2.0,
-                              spreadRadius: 0.0,
-                              offset: Offset(2.0, 2.0,), // shadow direction: bottom right
-                            )
-                          ],
-                        ),
-                      child: Padding(
-                        padding: EdgeInsets.only(left: constraints.maxWidth*0.05,right: constraints.maxWidth*0.05,top: constraints.maxHeight*0.02,bottom: constraints.maxHeight*0.02),
-                        child:  Text(editProfile,textAlign: TextAlign.center,style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),),
                       ),
-                    ),
-                  ),
-                  const SizedBox(height: 30,),
-                  onTapping?Container():Material(
-                    elevation: 8,
-                    shadowColor: Colors.black,
-                    borderRadius: BorderRadius.circular(20),
-                    child: Container(
-                      margin: EdgeInsets.only(top: constraints.maxHeight*0.01,left: constraints.maxWidth*0.05,right: constraints.maxWidth*0.05),
-
-                      width: constraints.maxWidth*0.8,
-                      child: Column(
-                        children: [
-                          Container(
-                              margin:EdgeInsets.only(top: constraints.maxHeight*0.02),
-                              child: Text('There are no links in your profile',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6),fontWeight: FontWeight.bold),)),
-                          const SizedBox(height: 20,),
-                          GestureDetector(
-                            onTap: (){
-                              context.read<ProfileBloc>().add(AddLinkClicked());
-                            },
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8.0),
-                                color: Colors.white,
-                                boxShadow:const [
-                                  BoxShadow(
-                                    color: Colors.black,
-                                    blurRadius: 2.0,
-                                    spreadRadius: 0.0,
-                                    offset: Offset(2.0, 2.0,), // shadow direction: bottom right
-                                  )
-                                ],
-                              ),
-                              child: Padding(
-                                padding: EdgeInsets.only(left:constraints.maxWidth*0.05,right: constraints.maxWidth*0.05,top: constraints.maxHeight*0.03,bottom: constraints.maxHeight*0.03),
-                                child: Icon(Icons.add),
-                              ),
-                            ),
-                          ),
-                          Container(
-                              margin:EdgeInsets.only(top: constraints.maxHeight*0.02,bottom: constraints.maxHeight*0.02),
-                              child: Text('Add link',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),)),
-                        ],
-                      ),
-                    ),
-                  )
+                    )
 
 
-                ],
+                  ],
+                ),
               ),
             )
         );
@@ -674,6 +689,46 @@ bool getTheImage = false;
           ],
         );
       },
+    );
+  }
+  Widget nameContainer(){
+    return Container(
+       decoration: BoxDecoration(
+         color: Colors.black12,
+         borderRadius: BorderRadius.circular(10)
+       ),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 10),
+        child: TextField(
+          decoration: InputDecoration(
+              border: InputBorder.none,
+
+              hintText: 'Name',
+
+          ),
+        ),
+      )
+
+    );
+  }
+  Widget writeContainer(){
+    return Container(
+        decoration: BoxDecoration(
+            color: Colors.black12,
+            borderRadius: BorderRadius.circular(10)
+        ),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: TextField(
+            decoration: InputDecoration(
+              border: InputBorder.none,
+
+              hintText: 'Write something about..',
+
+            ),
+          ),
+        )
+
     );
   }
 }

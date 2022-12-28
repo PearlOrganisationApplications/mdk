@@ -184,6 +184,12 @@ class _SocialLinkState extends State<SocialLink> {
       backgroundColor: const Color(0xfff1f1f1),
       // context and builder are
       // required properties in this widget
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+            topRight: Radius.circular(40.0),
+            topLeft: Radius.circular(40.0)
+        ),
+      ),
       context: context,
       builder: (BuildContext context) {
         // we set up a container inside which
@@ -197,7 +203,7 @@ class _SocialLinkState extends State<SocialLink> {
            },
            child: Align(
                alignment: Alignment.topRight,
-               child: Icon(Icons.keyboard_arrow_down_outlined,color: Colors.grey,size: ResponsiveFlutter.of(context).fontSize(4.8),)),
+               child: Icon(Icons.keyboard_arrow_down_outlined,color: Colors.grey,size: ResponsiveFlutter.of(context).fontSize(4.7),)),
          ),
           s=="notCustomLink"? Image.asset("assets/insta.png",height:constraints.maxHeight*0.08,width: constraints.maxWidth*0.15,):Container(
                decoration: BoxDecoration(
@@ -213,10 +219,13 @@ class _SocialLinkState extends State<SocialLink> {
             // color: Colors.black,
             margin: EdgeInsets.only(left: constraints.maxWidth*0.22,right: constraints.maxWidth*0.22,top: constraints.maxHeight*0.01),
 
-            child: Material(
-                borderRadius: BorderRadius.circular(10),
-                elevation: 10.0,
-                shadowColor: Colors.black,
+            child: Container(
+
+               decoration: BoxDecoration(
+                 borderRadius: BorderRadius.circular(10),
+
+
+               ),
                 child: TextFormField(
                    initialValue: 'Instagram',
                   cursorColor: Colors.black,

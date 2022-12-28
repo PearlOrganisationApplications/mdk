@@ -65,7 +65,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomSheet: Container(
-        height: 330,
+        height: 230,
         margin: const EdgeInsets.all(10),
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
@@ -148,68 +148,94 @@ class _LoginState extends State<Login> {
                   child: login? const CircularProgressIndicator() : Text(loginText, textAlign: TextAlign.center, style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: ResponsiveFlutter.of(context).fontSize(1.5)),),
                 ),
               ),
-              GestureDetector(
-                onTap: () async {
-                  print('hello');
-                  _handleSignIn(context);
+              // GestureDetector(
+              //   onTap: () async {
+              //     print('hello');
+              //     _handleSignIn(context);
+              //
+              //   },
+              //   child: Container(
+              //     margin: const EdgeInsets.fromLTRB(15, 8, 15, 8),
+              //     padding: const EdgeInsets.all(15),
+              //     decoration: BoxDecoration(
+              //       borderRadius: BorderRadius.circular(10),
+              //       gradient: const LinearGradient(
+              //           colors: [
+              //             Color(0xFFFFFFFF),
+              //             Color(0xFFFFFFFF),
+              //           ],
+              //           begin: FractionalOffset(0.0, 0.0),
+              //           end: FractionalOffset(1.0, 0.0),
+              //           stops: [0.0, 1.0],
+              //           tileMode: TileMode.clamp),
+              //       boxShadow: const [BoxShadow(color: Colors.grey, blurRadius: 10.0)],
+              //     ),
+              //     child: googleLogin? const CircularProgressIndicator() : Row(
+              //       children: [
+              //         Expanded(flex: 1,child: Image.asset("assets/google.png", height: 30, width: 30,)),
+              //         Expanded(flex: 4,child: Text(googleLoginText, textAlign: TextAlign.center, style: TextStyle(color:Colors.black,fontWeight: FontWeight.bold, fontSize: ResponsiveFlutter.of(context).fontSize(1.5)),)),
+              //       ],
+              //     ),
+              //   ),
+              // ),
+              // GestureDetector(
+              //   onTap: ()  {
+              //     facebookLogginIn();
+              //     // setState((){
+              //     //   facebookLogin = true;
+              //     // });
+              //     // facebookLoginDetail();
+              //   },
+              //   child: Container(
+              //     margin: const EdgeInsets.fromLTRB(15, 8, 15, 8),
+              //     padding: const EdgeInsets.all(15),
+              //     decoration: BoxDecoration(
+              //       borderRadius: BorderRadius.circular(10),
+              //       gradient: const LinearGradient(
+              //           colors: [
+              //             Color(0xFF2b5398),
+              //             Color(0xFF2b5398),
+              //           ],
+              //           begin: FractionalOffset(0.0, 0.0),
+              //           end: FractionalOffset(1.0, 0.0),
+              //           stops: [0.0, 1.0],
+              //           tileMode: TileMode.clamp),
+              //       boxShadow: const [BoxShadow(color: Colors.grey, blurRadius: 10.0)],
+              //     ),
+              //     child: facebookLogin? const CircularProgressIndicator() : Row(
+              //       children: [
+              //         Expanded(flex: 1,child: Image.asset("assets/facebook.png", height: 30, width: 30,)),
+              //         Expanded(flex: 4,child: Text(facebookLoginText, textAlign: TextAlign.center, style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: ResponsiveFlutter.of(context).fontSize(1.5)),)),
+              //       ],
+              //     ),
+              //   ),
+              // ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
 
-                },
-                child: Container(
-                  margin: const EdgeInsets.fromLTRB(15, 8, 15, 8),
-                  padding: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    gradient: const LinearGradient(
-                        colors: [
-                          Color(0xFFFFFFFF),
-                          Color(0xFFFFFFFF),
-                        ],
-                        begin: FractionalOffset(0.0, 0.0),
-                        end: FractionalOffset(1.0, 0.0),
-                        stops: [0.0, 1.0],
-                        tileMode: TileMode.clamp),
-                    boxShadow: const [BoxShadow(color: Colors.grey, blurRadius: 10.0)],
-                  ),
-                  child: googleLogin? const CircularProgressIndicator() : Row(
-                    children: [
-                      Expanded(flex: 1,child: Image.asset("assets/google.png", height: 30, width: 30,)),
-                      Expanded(flex: 4,child: Text(googleLoginText, textAlign: TextAlign.center, style: TextStyle(color:Colors.black,fontWeight: FontWeight.bold, fontSize: ResponsiveFlutter.of(context).fontSize(1.5)),)),
-                    ],
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: ()  {
-                  facebookLogginIn();
-                  // setState((){
-                  //   facebookLogin = true;
-                  // });
-                  // facebookLoginDetail();
-                },
-                child: Container(
-                  margin: const EdgeInsets.fromLTRB(15, 8, 15, 8),
-                  padding: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    gradient: const LinearGradient(
-                        colors: [
-                          Color(0xFF2b5398),
-                          Color(0xFF2b5398),
-                        ],
-                        begin: FractionalOffset(0.0, 0.0),
-                        end: FractionalOffset(1.0, 0.0),
-                        stops: [0.0, 1.0],
-                        tileMode: TileMode.clamp),
-                    boxShadow: const [BoxShadow(color: Colors.grey, blurRadius: 10.0)],
-                  ),
-                  child: facebookLogin? const CircularProgressIndicator() : Row(
-                    children: [
-                      Expanded(flex: 1,child: Image.asset("assets/facebook.png", height: 30, width: 30,)),
-                      Expanded(flex: 4,child: Text(facebookLoginText, textAlign: TextAlign.center, style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: ResponsiveFlutter.of(context).fontSize(1.5)),)),
-                    ],
-                  ),
-                ),
-              ),
+                  GestureDetector
+                    (
+                  onTap: () async {
+          print('hello');
+          _handleSignIn(context);
+
+        },
+                      child: Icon(Icons.g_mobiledata,size: 50,color: Colors.blue.shade400,)),
+                  SizedBox(width: 10,),
+                  GestureDetector(
+                      onTap: ()  {
+                            facebookLogginIn();
+                            setState((){
+                              facebookLogin = true;
+                            });
+                           // facebookLoginDetail();
+                          },
+                      child: Icon(Icons.facebook_sharp,size: 32,color: Colors.blue.shade400,)),
+
+
+                ],
+              )
             ],
           ),
         ),
@@ -231,11 +257,11 @@ class _LoginState extends State<Login> {
                       children: const [
                         Padding(
                           padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
-                          child: Text("Hey, \nLogin Now.", textAlign: TextAlign.start, style: TextStyle(fontFamily: "JosefinSans", fontSize: 40, fontWeight: FontWeight.bold, color: Colors.black, fontStyle: FontStyle.italic),),
+                          child: Text("Hey, \nLogin Now.", textAlign: TextAlign.start, style: TextStyle(fontFamily: "JosefinSans", fontSize: 40, fontWeight: FontWeight.bold, color: Colors.blue, fontStyle: FontStyle.italic),),
                         ),
                         Padding(
                           padding: EdgeInsets.all(15.0),
-                          child: Text("Many peoples use Tapittek to share their data/profile securely using NFC Card.", textAlign: TextAlign.start, style: TextStyle(fontFamily: "JosefinSans",fontSize: 25, color: Colors.black),),
+                          child: Text("Many peoples use Tapittek to share their data profile securely using NFC Card.", textAlign: TextAlign.start, style: TextStyle(fontFamily: "JosefinSans",fontSize: 15, color: Colors.black54),),
                         ),
                       ],
                     ),
