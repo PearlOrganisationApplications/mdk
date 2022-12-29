@@ -3,7 +3,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:lottie/lottie.dart';
 import 'package:mdk/bloc/HomepageBloc/homepage_event.dart';
 import 'package:responsive_flutter/responsive_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -95,7 +97,7 @@ class _LoginState extends State<Login> {
                           // fillColor: Colors.black.withOpacity(0.2),
                             filled: true,
                             hintText: "Enter Email",
-                            helperStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black),
+                            helperStyle: GoogleFonts.montserrat(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide: const BorderSide(
@@ -109,7 +111,7 @@ class _LoginState extends State<Login> {
                                 // style: BorderStyle.solid,
                                   width: 1),
                             ),
-                            labelStyle: const TextStyle(color: Colors.black)),
+                            labelStyle:  GoogleFonts.montserrat(color: Colors.black)),
                       ),
                       const SizedBox(height: 10,),
                     ],
@@ -145,7 +147,7 @@ class _LoginState extends State<Login> {
                         tileMode: TileMode.clamp),
                     boxShadow: const [BoxShadow(color: Colors.grey, blurRadius: 10.0)],
                   ),
-                  child: login? const CircularProgressIndicator() : Text(loginText, textAlign: TextAlign.center, style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: ResponsiveFlutter.of(context).fontSize(1.5)),),
+                  child: login?  CircularProgressIndicator() : Text(loginText, textAlign: TextAlign.center, style: GoogleFonts.montserrat(color:Colors.white,fontWeight: FontWeight.bold, fontSize: ResponsiveFlutter.of(context).fontSize(1.5)),),
                 ),
               ),
               // GestureDetector(
@@ -249,19 +251,20 @@ class _LoginState extends State<Login> {
               SizedBox(
                 child: Column(
                   children: [
-                    Image.asset("assets/onboard.jpg", fit: BoxFit.contain ,
-                      width: MediaQuery.of(context).size.width, height: MediaQuery.of(context).size.height / 3 ,),
+                    // Image.asset("assets/onboard.jpg", fit: BoxFit.contain ,
+                    //   width: MediaQuery.of(context).size.width, height: MediaQuery.of(context).size.height / 3 ,),
+                    Lottie.asset("assets/animation/qrcode.json"),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: const [
+                      children:  [
                         Padding(
                           padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
-                          child: Text("Hey, \nLogin Now.", textAlign: TextAlign.start, style: TextStyle(fontFamily: "JosefinSans", fontSize: 40, fontWeight: FontWeight.bold, color: Colors.blue, fontStyle: FontStyle.italic),),
+                          child: Text("Hey, \nLogin Now.", textAlign: TextAlign.start, style: GoogleFonts.montserrat( fontSize: 40, fontWeight: FontWeight.bold, color: Colors.blue,),),
                         ),
                         Padding(
                           padding: EdgeInsets.all(15.0),
-                          child: Text("Many peoples use Tapittek to share their data profile securely using NFC Card.", textAlign: TextAlign.start, style: TextStyle(fontFamily: "JosefinSans",fontSize: 15, color: Colors.black54),),
+                          child: Text("Many peoples use Tapittek to share their data profile securely using NFC Card.", textAlign: TextAlign.start, style: GoogleFonts.montserrat(fontSize: 15, color: Colors.black54),),
                         ),
                       ],
                     ),

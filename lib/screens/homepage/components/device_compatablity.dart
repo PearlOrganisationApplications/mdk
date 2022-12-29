@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_flutter/responsive_flutter.dart';
 
 import '../../../utils/configuration.dart';
@@ -25,7 +26,7 @@ class _DeviceCompatibilityState extends State<DeviceCompatibility> {
                 Container(
                   margin: EdgeInsets.only(top: constraints.maxHeight*0.02),
                     width: constraints.maxWidth,
-                    child: Text('DEVICES COMPATIBILITY\n LIST',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(2.5)),textAlign: TextAlign.center,)),
+                    child: Text('DEVICES COMPATIBILITY\n LIST',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(2.5)),textAlign: TextAlign.center,)),
 
               Container(
                 margin: EdgeInsets.only(left: constraints.maxWidth*0.05,right: constraints.maxWidth*0.05,top: constraints.maxHeight*0.03),
@@ -38,13 +39,13 @@ class _DeviceCompatibilityState extends State<DeviceCompatibility> {
                 Container(
                     margin: EdgeInsets.only(top: constraints.maxHeight*0.02),
                     width: constraints.maxWidth,
-                    child: Text('Tapitek uses technology that is compatible with most newer iPhone and Android devices.',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(2.5)),textAlign: TextAlign.center,)),
+                    child: Text('Tapitek uses technology that is compatible with most newer iPhone and Android devices.',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(2.5)),textAlign: TextAlign.center,)),
 
                 Container(
                     margin: EdgeInsets.only(left: constraints.maxWidth*0.05,right: constraints.maxWidth*0.05,top: constraints.maxHeight*0.03),
 
                     width: constraints.maxWidth,
-                    child: Text('Some Android phones might have NFC turned off. If your Tapitek is not working on android devices , search for NFC and make sure it is turned on',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.8),fontWeight: FontWeight.bold),textAlign: TextAlign.center,)),
+                    child: Text('Some Android phones might have NFC turned off. If your Tapitek is not working on android devices , search for NFC and make sure it is turned on',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(1.8),fontWeight: FontWeight.bold),textAlign: TextAlign.center,)),
 
                 getText('Apple (iPhone)',constraints),
                 const SizedBox(height: 20,),
@@ -104,7 +105,7 @@ class _DeviceCompatibilityState extends State<DeviceCompatibility> {
        margin: EdgeInsets.only(left: constraints.maxWidth*0.05,right: constraints.maxWidth*0.05,top: constraints.maxHeight*0.03),
 
        width: constraints.maxWidth,
-       child: Text(s,style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(2.5),fontWeight: FontWeight.bold),textAlign: TextAlign.center,));
+       child: Text(s,style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(2.5),fontWeight: FontWeight.bold),textAlign: TextAlign.center,));
  }
 
  Widget getList(List<Map> appleIphone, BoxConstraints constraints)

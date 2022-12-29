@@ -1,5 +1,9 @@
+import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'package:mdk/screens/homepage/components/homepage_initial.dart';
 import 'package:mdk/screens/homepage/components/profile.dart';
 import 'package:mdk/screens/profile/profile_page.dart';
@@ -40,67 +44,53 @@ class BottomScreenPage extends StatefulWidget {
 }
 
 class _BottomScreenPageState extends State<BottomScreenPage> {
+  final _pageController = PageController(initialPage: 2);
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
       resizeToAvoidBottomInset: false,
 
-      bottomNavigationBar: BlocBuilder<NavigationCubit,NavigationState>(
+
+
+    bottomNavigationBar: BlocBuilder<NavigationCubit,NavigationState>(
         builder: (context,state)
         {
           return
             BottomNavigationBar(
-            selectedLabelStyle: TextStyle(fontSize:ResponsiveFlutter.of(context).fontSize(1.0),fontWeight: FontWeight.bold),
-            backgroundColor: Colors.black,
+            selectedLabelStyle: GoogleFonts.montserrat(fontSize:ResponsiveFlutter.of(context).fontSize(1.0),fontWeight: FontWeight.bold),
+            backgroundColor: Colors.white,
             selectedItemColor: Colors.blue,
-            unselectedItemColor: Colors.white,
-            type: BottomNavigationBarType.shifting,
-            showUnselectedLabels: false,
+              selectedFontSize: 14,
+              unselectedFontSize: 14,
+            unselectedItemColor: Colors.black,
+            type: BottomNavigationBarType.fixed,
+              showUnselectedLabels: false,
             currentIndex: state.index,
-
-            items:   const [
-
+            items:  [
               BottomNavigationBarItem(
                 backgroundColor:Colors.white,
-                activeIcon:  Icon(
-                  Icons.home,
-                  color: Colors.blue,
-                ),
-                icon:  Icon(
-                  Icons.home,
-                  color: Colors.black,
-                ),
-
+                activeIcon: Lottie.asset("assets/animation/homeicon.json",width: 40,height: 40),
+                icon:  Lottie.asset("assets/animation/homeicon.json",width: 30,height: 30),
                 label: 'Home',
               ),
               BottomNavigationBarItem(
                 backgroundColor:Colors.white,
-                activeIcon:  Icon(
-                  Icons.pending_outlined,
-                  color: Colors.blue,
-                ),
-                icon:  Icon(
-                  Icons.pending_outlined,
-                  color: Colors.black,
-                ),
-
-
+                activeIcon:  Lottie.asset("assets/animation/activateicon.json",width: 40,height: 40),
+                icon:  Lottie.asset("assets/animation/activateicon.json",width: 30,height: 30),
                 label: 'Activate Tag',
               ),
               BottomNavigationBarItem(
                 backgroundColor:Colors.white,
-                activeIcon:  Icon(
-                  Icons.person,
-                  color: Colors.blue,
-                ),
-                icon:  Icon(
-                  Icons.person,
-                  color: Colors.black,
-                ),
 
+                activeIcon:  Lottie.asset("assets/animation/profileiconselected.json",width: 40,height: 40),
+                icon:  Lottie.asset("assets/animation/profileiconselected.json",width: 30,height: 30),
                 label: 'Profile',
               ),
-
             ],
             onTap: (index) {
               if (index == 0)
@@ -122,7 +112,6 @@ class _BottomScreenPageState extends State<BottomScreenPage> {
             },
           );
         },
-
       ),
       body: BlocBuilder<NavigationCubit, NavigationState>(
           builder: (context, state) {
@@ -197,7 +186,7 @@ showSettingDialog(  BuildContext context,) {
             ),
 
 
-            Text("Pick a direct link ",style: TextStyle(fontSize: 30,color: Colors.black,fontWeight: FontWeight.bold),),
+            Text("Pick a direct link ",style: GoogleFonts.montserrat(fontSize: 30,color: Colors.black,fontWeight: FontWeight.bold),),
             Container(
 
               width: width *0.7,
@@ -212,7 +201,7 @@ showSettingDialog(  BuildContext context,) {
             ),
             Text(
                "Whe you tap someone phone \n this link will be opened instead of your full profile ",textAlign: TextAlign.center
-
+               ,style: GoogleFonts.montserrat(),
             )
 
           ],

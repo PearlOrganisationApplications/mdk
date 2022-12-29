@@ -1,4 +1,6 @@
 import 'package:badges/badges.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'package:mdk/bloc/HomepageBloc/homepage_event.dart';
 import 'package:mdk/screens/homepage/components/device_compatablity.dart';
 import 'package:mdk/screens/homepage/components/homescreen_page.dart';
@@ -58,8 +60,9 @@ class HomePage extends StatelessWidget
                 },
                 child: Container(
                     margin: EdgeInsets.only(right: constraints.maxWidth*0.03),
-                    child: const Icon(Icons.qr_code_scanner_outlined,color: Colors.white,)),
-              )
+                    child:  Lottie.asset("assets/animation/qricon.json")
+                    // Icon(Icons.qr_code_scanner_outlined,color: Colors.white,),
+              ))
             ],
             centerTitle: true,
             flexibleSpace: Container(
@@ -75,8 +78,8 @@ class HomePage extends StatelessWidget
 
               ),
             ),
-            title: const Text(
-              'Tapitek',
+            title:   Text(
+              'Tapitek',style: GoogleFonts.montserrat(fontWeight: FontWeight.w900,fontSize: 25),
             ),
             // backgroundColor:  Colors.blue,
           ),
@@ -96,7 +99,7 @@ class HomePage extends StatelessWidget
                       children: [
                         Image.asset("assets/user.png",),
                         SizedBox(width: 20,),
-                        Text('sudhanshu_juyal',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6),fontWeight: FontWeight.bold),)
+                        Text('sudhanshu_juyal',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(1.6),fontWeight: FontWeight.bold),)
                       ],
                     ),
                 ),
@@ -109,7 +112,7 @@ class HomePage extends StatelessWidget
                     },
                     child: AvatarGlow(
                       glowColor: Colors.blue,
-                      endRadius: 80,
+                      endRadius: 50,
                       duration: Duration(milliseconds: 2500),
                       repeat: true,
                       showTwoGlows: true,
@@ -119,12 +122,12 @@ class HomePage extends StatelessWidget
                         color: Colors.white,
                         // margin: EdgeInsets.only(left: constraints.maxWidth*0.05),
                         child: Row(
-                          children: const [
+                          children: [
                             Icon(
                               Icons.supervised_user_circle_outlined,
                             ),
                             SizedBox(width: 10,),
-                            Text('Complete Profile',style: TextStyle(fontWeight: FontWeight.bold),),
+                            Text('Complete Profile',style: GoogleFonts.montserrat(fontWeight: FontWeight.bold),),
                           ],
                         )
                       ),
@@ -139,10 +142,10 @@ class HomePage extends StatelessWidget
 
                         const SizedBox(height: 10,),
                         Row(
-                          children: const [
+                          children:   [
                             Icon(Icons.supervised_user_circle_outlined,),
                             SizedBox(width: 10,),
-                            Text('My Connection',style: TextStyle(fontWeight: FontWeight.bold),),
+                            Text('My Connection',style: GoogleFonts.montserrat(fontWeight: FontWeight.bold),),
                           ],
                         ),
                         const SizedBox(height: 30,),
@@ -152,10 +155,10 @@ class HomePage extends StatelessWidget
                             context.read<HomePageBloc>().add(HomePageInitialEvent());
                           },
                           child: Row(
-                            children: const [
+                            children:   [
                               Icon(Icons.home,),
                               SizedBox(width: 10,),
-                              Text('Homepage',style: TextStyle(fontWeight: FontWeight.bold),),
+                              Text('Homepage',style: GoogleFonts.montserrat(fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
@@ -166,12 +169,12 @@ class HomePage extends StatelessWidget
                                  context.read<HomePageBloc>().add(DeviceCompatibilityEvent());
                           },
                           child: Row(
-                            children: const [
+                            children:  [
                               Icon(
                                 Icons.smartphone_outlined,
                               ),
                               SizedBox(width: 10,),
-                              Text('Device compatibility',style: TextStyle(fontWeight: FontWeight.bold),),
+                              Text('Device compatibility',style: GoogleFonts.montserrat(fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
@@ -185,12 +188,12 @@ class HomePage extends StatelessWidget
                             context.read<HomePageBloc>().add(QuestionEvent());
                           },
                           child: Row(
-                            children: const [
+                            children: [
                               Icon(
                                 Icons.help_outline_outlined,
                               ),
                               SizedBox(width: 10,),
-                              Text('Help',style: TextStyle(fontWeight: FontWeight.bold),),
+                              Text('Help',style: GoogleFonts.montserrat(fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
@@ -203,12 +206,12 @@ class HomePage extends StatelessWidget
                             __showSettingDialog( context);
                           },
                           child: Row(
-                            children: const [
+                            children: [
                               Icon(
                                 Icons.settings_outlined,
                               ),
                               SizedBox(width: 10,),
-                              Text('Settings',style: TextStyle(fontWeight: FontWeight.bold),),
+                              Text('Settings',style: GoogleFonts.montserrat(fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
@@ -230,12 +233,12 @@ class HomePage extends StatelessWidget
                             context.read<HomePageBloc>().add(LoginEvent());
                           },
                           child: Row(
-                            children: const [
+                            children:   [
                               Icon(
                                 Icons.logout_outlined,
                               ),
                               SizedBox(width: 10,),
-                              Text('Logout',style: TextStyle(fontWeight: FontWeight.bold),),
+                              Text('Logout',style: GoogleFonts.montserrat(fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
@@ -474,7 +477,7 @@ class HomePage extends StatelessWidget
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Text("Share profile",style:TextStyle(fontSize: 20,fontStyle: FontStyle.normal,fontWeight: FontWeight.bold) ,),
+                Text("Share profile",style:GoogleFonts.montserrat(fontSize: 20,fontStyle: FontStyle.normal,fontWeight: FontWeight.bold) ,),
                  SizedBox(height: 20,),
                 Container(
                   child:  Column(
@@ -505,7 +508,7 @@ class HomePage extends StatelessWidget
                                               ),
                                               Padding(
                                                 padding: EdgeInsets.only(left: constraints.maxWidth*0.05,right: constraints.maxWidth*0.05,top: constraints.maxHeight*0.02,bottom: constraints.maxHeight*0.02),
-                                                child: Text('tapitek/sudhanshu_juyal'),
+                                                child: Text('tapitek/sudhanshu_juyal',style: GoogleFonts.montserrat(),),
                                               )
                                             ],
                                           ),
@@ -528,13 +531,13 @@ class HomePage extends StatelessWidget
                                             ),
                                             Padding(
                                               padding: EdgeInsets.only(left: constraints.maxWidth*0.05,right: constraints.maxWidth*0.05,top: constraints.maxHeight*0.02,bottom: constraints.maxHeight*0.02),
-                                              child: Text('Share Profile',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.8)),),
+                                              child: Text('Share Profile',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(1.8)),),
                                             )
                                           ],
                                         ),
                       ),
                       SizedBox(height: 20,),
-                      Text("if you want to change your link \n click here to change username")
+                      Text("if you want to change your link \n click here to change username",style: GoogleFonts.montserrat(),)
                     ],
                   ),
                 ),
@@ -586,7 +589,7 @@ class HomePage extends StatelessWidget
                         Text(
                           "Complete your profile",
                           textAlign: TextAlign.center,
-                          style: TextStyle(fontWeight: FontWeight.bold,fontSize: ResponsiveFlutter.of(context).fontSize(3.0)),
+                          style: GoogleFonts.montserrat(fontWeight: FontWeight.bold,fontSize: ResponsiveFlutter.of(context).fontSize(3.0)),
                         ),
                         Icon(Icons.keyboard_arrow_down_outlined,color: Colors.grey,size: ResponsiveFlutter.of(context).fontSize(5.8),)
                       ],
@@ -629,7 +632,7 @@ class HomePage extends StatelessWidget
                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                children:
                [
-                 Text(title,style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6),color: Colors.black,fontWeight: FontWeight.bold),),
+                 Text(title,style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(1.6),color: Colors.black,fontWeight: FontWeight.bold),),
                  Container(
                    decoration: const BoxDecoration(
                        shape: BoxShape.circle,
@@ -644,7 +647,7 @@ class HomePage extends StatelessWidget
              ),
              Container(
 
-                 child: Text(subTitle,style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6),color: Colors.black),textAlign: TextAlign.start,)),
+                 child: Text(subTitle,style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(1.6),color: Colors.black),textAlign: TextAlign.start,)),
 
            ],
          ),
@@ -705,6 +708,7 @@ class HomePage extends StatelessWidget
                     cursorColor: Colors.black,
                     decoration: InputDecoration(
                         hintText: 'Link Text',
+                        suffixStyle: GoogleFonts.montserrat(),
                         fillColor: Colors.white,
                         filled: true,
                         focusedBorder: OutlineInputBorder(
@@ -721,12 +725,12 @@ class HomePage extends StatelessWidget
                               style: BorderStyle.solid,
                               width: 3),
                         ),
-                        labelStyle: const TextStyle(color: Colors.black)),
+                        labelStyle:   GoogleFonts.montserrat(color: Colors.black)),
                   )
               ),
             ),
             SizedBox(height: 10,),
-            Text('Enter your new username',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),),
+            Text('Enter your new username',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),),
             GestureDetector(
               onTap: (){
               },
@@ -743,7 +747,7 @@ class HomePage extends StatelessWidget
 
                     Padding(
                       padding: EdgeInsets.only(left: constraints.maxWidth*0.05,right: constraints.maxWidth*0.05,top: constraints.maxHeight*0.02,bottom: constraints.maxHeight*0.02),
-                      child: Text('Update username',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6),fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                      child: Text('Update username',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(1.6),fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
                     )
                   ],
                 ),
@@ -811,6 +815,7 @@ class HomePage extends StatelessWidget
 
                           hintText: 'Current Password',
                           fillColor: Colors.white,
+                          suffixStyle: GoogleFonts.montserrat(),
                           filled: true,
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
@@ -826,12 +831,12 @@ class HomePage extends StatelessWidget
                                 style: BorderStyle.solid,
                                 width: 3),
                           ),
-                          labelStyle: const TextStyle(color: Colors.black)),
+                          labelStyle:   GoogleFonts.montserrat(color: Colors.black)),
                     )
                 ),
               ),
               const SizedBox(height: 10,),
-              Text('Enter your new current password',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),),
+              Text('Enter your new current password',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),),
               Container(
                 margin: EdgeInsets.only(left: constraints.maxWidth*0.09,right: constraints.maxWidth*0.09,top: constraints.maxHeight*0.02),
                 child: Material(
@@ -844,6 +849,7 @@ class HomePage extends StatelessWidget
 
 
                           hintText: 'New password',
+                          suffixStyle: GoogleFonts.montserrat(),
                           fillColor: Colors.white,
                           filled: true,
                           focusedBorder: OutlineInputBorder(
@@ -860,12 +866,12 @@ class HomePage extends StatelessWidget
                                 style: BorderStyle.solid,
                                 width: 3),
                           ),
-                          labelStyle: const TextStyle(color: Colors.black)),
+                          labelStyle:   GoogleFonts.montserrat(color: Colors.black)),
                     )
                 ),
               ),
               const SizedBox(height: 10,),
-              Text('Enter your new password',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),),
+              Text('Enter your new password',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),),
               Container(
                 margin: EdgeInsets.only(left: constraints.maxWidth*0.09,right: constraints.maxWidth*0.09,top: constraints.maxHeight*0.02),
                 child: Material(
@@ -879,6 +885,7 @@ class HomePage extends StatelessWidget
 
                           hintText: 'Enter your new password again',
                           fillColor: Colors.white,
+                          suffixStyle: GoogleFonts.montserrat(),
                           filled: true,
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
@@ -894,12 +901,12 @@ class HomePage extends StatelessWidget
                                 style: BorderStyle.solid,
                                 width: 3),
                           ),
-                          labelStyle: const TextStyle(color: Colors.black)),
+                          labelStyle: GoogleFonts.montserrat(color: Colors.black)),
                     )
                 ),
               ),
               const SizedBox(height: 10,),
-              Text('Enter your new password again',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),),
+              Text('Enter your new password again',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),),
               GestureDetector(
                 onTap: (){
                 },
@@ -916,7 +923,7 @@ class HomePage extends StatelessWidget
 
                       Padding(
                         padding: EdgeInsets.only(left: constraints.maxWidth*0.05,right: constraints.maxWidth*0.05,top: constraints.maxHeight*0.02,bottom: constraints.maxHeight*0.02),
-                        child: Text('Password update',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6),fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                        child: Text('Password update',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(1.6),fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
                       )
                     ],
                   ),
@@ -1000,7 +1007,7 @@ class HomePage extends StatelessWidget
                   Padding(
                     padding: EdgeInsets.only(top: height*0.02,bottom: height*0.02),
                     child: Container(
-                        child: Text('Scan Qr Code',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),textAlign: TextAlign.center,)
+                        child: Text('Scan Qr Code',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),textAlign: TextAlign.center,)
                     ),
                   )
                 ],
@@ -1032,13 +1039,13 @@ class HomePage extends StatelessWidget
                               style: BorderStyle.solid,
                               width: 3),
                         ),
-                        labelStyle: const TextStyle(color: Colors.black)),
+                        labelStyle:   GoogleFonts.montserrat(color: Colors.black)),
                   )
               ),
             ),
             const SizedBox(height: 10,),
 
-            Text('Enter the activation code',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),textAlign: TextAlign.center,),
+            Text('Enter the activation code',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),textAlign: TextAlign.center,),
             const SizedBox(height: 20,),
 
             GestureDetector(
@@ -1064,7 +1071,7 @@ class HomePage extends StatelessWidget
 
                     Padding(
                       padding: EdgeInsets.only(left: width*0.05,right: width*0.05,top: height*0.02,bottom: height*0.02),
-                      child: Text('Activate tag',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6),fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                      child: Text('Activate tag',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(1.6),fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
                     )
                   ],
                 ),

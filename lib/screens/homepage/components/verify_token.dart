@@ -1,9 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lottie/lottie.dart';
 import 'package:mdk/bloc/HomepageBloc/homepage_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import '../../../bloc/HomepageBloc/homepage_event.dart';
 import '../../../bloc/authenticationBloc/authentication_bloc.dart';
 import '../../../bloc/authenticationBloc/authentication_event.dart';
@@ -54,7 +55,8 @@ class _VerifyTokenState extends State<VerifyToken> {
                       // fillColor: Colors.black.withOpacity(0.2),
                         filled: true,
                         hintText: "Verify Token",
-                        helperStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black),
+                        helperStyle:
+                                      TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: const BorderSide(
@@ -99,7 +101,7 @@ class _VerifyTokenState extends State<VerifyToken> {
                         tileMode: TileMode.clamp),
                     boxShadow: const [BoxShadow(color: Colors.grey, blurRadius: 10.0)],
                   ),
-                  child: verify? const CircularProgressIndicator() : Text(verifytext, textAlign: TextAlign.center, style: const TextStyle(color:Colors.white,fontWeight: FontWeight.bold, fontSize: 20),),
+                  child: verify? const CircularProgressIndicator() : Text(verifytext, textAlign: TextAlign.center, style: GoogleFonts.montserrat(color:Colors.white,fontWeight: FontWeight.bold, fontSize: 20),),
                 ),
               ),
             ],
@@ -117,10 +119,7 @@ class _VerifyTokenState extends State<VerifyToken> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(top: 200),
-                      child: Image.asset("assets/onboard.jpg", fit: BoxFit.contain ,
-                        alignment: Alignment.bottomCenter,
-                        //width: MediaQuery.of(context).size.width, height: MediaQuery.of(context).size.height - 90 ,
-                      ),
+                      child:  Center(child: Lottie.asset("assets/animation/qrcode.json")),
                     ),
                     // Column(
                     //   children: const [
@@ -140,8 +139,9 @@ class _VerifyTokenState extends State<VerifyToken> {
                         text: TextSpan(
                           style: TextStyle(color: Colors.black, fontSize: 25),
                           children: <TextSpan>[
-                            TextSpan(text: 'First, Verify you have our card ', style: TextStyle(color: Colors.blue,fontWeight: FontWeight.bold)),
-                            TextSpan(text: 'Use the Token provided by mail',style: TextStyle(fontSize: 25,color:Colors.black38 )),
+                            TextSpan(text: 'First, Verify you have our card ', style: GoogleFonts.montserrat(color: Colors.blue,fontWeight: FontWeight.bold)),
+                            //TextStyle(color: Colors.blue,fontWeight: FontWeight.bold)),
+                            TextSpan(text: 'Use the Token provided by mail',style: GoogleFonts.montserrat(fontSize: 25,color:Colors.black38 )),
 
                           ],
                         ),

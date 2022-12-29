@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mdk/bloc/HomepageBloc/homepage_bloc.dart';
 import 'package:mdk/bloc/profileBloc/profile_bloc.dart';
 import 'package:mdk/bloc/profileBloc/profile_event.dart';
@@ -31,7 +32,7 @@ class _SocialLinkState extends State<SocialLink> {
                   Container(
                     width: constraints.maxWidth,
                       margin: EdgeInsets.only(top: constraints.maxHeight*0.09,),
-                      child: Text('Choose a link type',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(2.1),fontWeight: FontWeight.bold),textAlign: TextAlign.center,)
+                      child: Text('Choose a link type',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(2.1),fontWeight: FontWeight.bold),textAlign: TextAlign.center,)
                   ),
                   Container(
                     width: constraints.maxWidth,
@@ -46,6 +47,7 @@ class _SocialLinkState extends State<SocialLink> {
                         cursorColor: Colors.black,
                         decoration: InputDecoration(
                             hintText: 'Search...',
+                            suffixStyle: GoogleFonts.montserrat(fontWeight: FontWeight.w100),
                             suffixIcon: const Icon(Icons.search),
                             fillColor: Colors.white,
                             filled: true,
@@ -73,7 +75,7 @@ class _SocialLinkState extends State<SocialLink> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('Featured',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(2.1),fontWeight: FontWeight.w600),textAlign: TextAlign.center,),
+                        Text('Featured',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(2.1),fontWeight: FontWeight.w600),textAlign: TextAlign.center,),
                         const SizedBox(width: 10,),
                         const Icon(Icons.local_fire_department,color: Colors.deepOrange,)
                       ],
@@ -95,7 +97,7 @@ class _SocialLinkState extends State<SocialLink> {
                               child: const Icon(Icons.contacts_outlined,color: Colors.white,),
                             ),
                           ),
-                          Text('Contact Card',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6),),)
+                          Text('Contact Card',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(1.6),),)
                         ],
                       ),
                       GestureDetector(
@@ -115,7 +117,7 @@ class _SocialLinkState extends State<SocialLink> {
                                 child: const Icon(Icons.link,color: Colors.black,),
                               ),
                             ),
-                            Text('Custom Link',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6),),)
+                            Text('Custom Link',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(1.6),),)
                           ],
                         ),
                       )
@@ -176,7 +178,7 @@ class _SocialLinkState extends State<SocialLink> {
   {
     return  Container(
         margin: EdgeInsets.only(top: constraints.maxHeight*0.05),
-        child: Text(text,style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(2.1),fontWeight: FontWeight.w600),textAlign: TextAlign.center,));
+        child: Text(text,style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(2.1),fontWeight: FontWeight.w600),textAlign: TextAlign.center,));
   }
 
    _showBottomSheetDialog(BoxConstraints constraints,String s) {
@@ -233,6 +235,8 @@ class _SocialLinkState extends State<SocialLink> {
 
 
                       hintText: 'Link Text',
+
+                      suffixStyle: GoogleFonts.montserrat(fontWeight: FontWeight.w100),
                       fillColor: Colors.white,
                       filled: true,
                       focusedBorder: OutlineInputBorder(
@@ -249,7 +253,7 @@ class _SocialLinkState extends State<SocialLink> {
                             style: BorderStyle.solid,
                             width: 3),
                       ),
-                      labelStyle: const TextStyle(color: Colors.black)),
+                      labelStyle:  GoogleFonts.montserrat(color: Colors.black)),
                 )
             ),
           ): Container(
@@ -264,10 +268,12 @@ class _SocialLinkState extends State<SocialLink> {
                 child: TextFormField(
                   initialValue: 'Custom Link',
                   cursorColor: Colors.black,
+                  style: GoogleFonts.montserrat(fontWeight: FontWeight.w100),
                   decoration: InputDecoration(
 
 
                       hintText: 'Link Text',
+                      suffixStyle: GoogleFonts.montserrat(),
                       fillColor: Colors.white,
                       filled: true,
                       focusedBorder: OutlineInputBorder(
@@ -284,12 +290,12 @@ class _SocialLinkState extends State<SocialLink> {
                             style: BorderStyle.solid,
                             width: 3),
                       ),
-                      labelStyle: const TextStyle(color: Colors.black)),
+                      labelStyle:  GoogleFonts.montserrat(color: Colors.black)),
                 )
             ),
           ),
           const SizedBox(height: 10,),
-          Text('Set text under link icon',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),),
+          Text('Set text under link icon',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),),
           const SizedBox(height: 20,),
           s=="notCustomLink"? Container(
             width: constraints.maxWidth,
@@ -306,6 +312,7 @@ class _SocialLinkState extends State<SocialLink> {
 
                       hintText: 'Instagram Username',
                       fillColor: Colors.white,
+                      suffixStyle: GoogleFonts.montserrat(fontWeight: FontWeight.w100),
                       filled: true,
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -321,7 +328,7 @@ class _SocialLinkState extends State<SocialLink> {
                             style: BorderStyle.solid,
                             width: 3),
                       ),
-                      labelStyle: const TextStyle(color: Colors.black)),
+                      labelStyle:  GoogleFonts.montserrat(color: Colors.black)),
                 )
             ),
           ):Container(
@@ -339,6 +346,7 @@ class _SocialLinkState extends State<SocialLink> {
 
                       hintText: 'https://',
                       fillColor: Colors.white,
+                      suffixStyle: GoogleFonts.montserrat(fontWeight: FontWeight.w100),
                       filled: true,
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -354,12 +362,12 @@ class _SocialLinkState extends State<SocialLink> {
                             style: BorderStyle.solid,
                             width: 3),
                       ),
-                      labelStyle: const TextStyle(color: Colors.black)),
+                      labelStyle:  GoogleFonts.montserrat(color: Colors.black)),
                 )
             ),
           ),
           const SizedBox(height: 10,),
-          Text('Enter your instagram username',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),),
+          Text('Enter your instagram username',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),),
 
           Container(
             decoration: BoxDecoration(
@@ -369,7 +377,7 @@ class _SocialLinkState extends State<SocialLink> {
             margin: EdgeInsets.only(top: constraints.maxHeight*0.05),
             child: Padding(
               padding:  EdgeInsets.only(left: constraints.maxWidth*0.06,right: constraints.maxWidth*0.06,top: constraints.maxHeight*0.01,bottom: constraints.maxHeight*0.01),
-              child: Text('Save',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.5),fontWeight: FontWeight.bold),),
+              child: Text('Save',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(1.5),fontWeight: FontWeight.bold),),
             ),
           )
 

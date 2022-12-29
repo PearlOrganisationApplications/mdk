@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'package:responsive_flutter/responsive_flutter.dart';
 
 import '../../../bloc/bottomNavigationCubit/navigation_cubit.dart';
@@ -26,23 +29,26 @@ class _ActivateTagState extends State<ActivateTag> {
                   margin: EdgeInsets.only(top: constraints.maxHeight*0.03),
                   width: constraints.maxWidth,
 
-                    child: Text('Tapitek tags',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(2.0),fontWeight: FontWeight.bold),textAlign: TextAlign.center,)),
+                    child: Text('Tapitek tags',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(2.0),fontWeight: FontWeight.bold),textAlign: TextAlign.center,)),
                 Container(
                     margin: EdgeInsets.only(top: constraints.maxHeight*0.03),
                     width: constraints.maxWidth,
 
-                    child: Text('There are no tags connected to your profile. \n Connect one now!',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.8),fontWeight: FontWeight.w400),textAlign: TextAlign.center,)),
+                    child: Text('There are no tags connected to your profile. \n Connect one now!',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(1.8),fontWeight: FontWeight.w400),textAlign: TextAlign.center,)),
 
               GestureDetector(
                   onTap: (){
                     __showSettingDialog( context);
 
                   },
-                  child: Image.asset("assets/circular_loading.png",height: constraints.maxHeight*0.20,width: constraints.maxWidth*0.24,)),
+                  child: Lottie.asset("assets/animation/loader.json")),
+
+
+                  //Image.asset("assets/circular_loading.png",height: constraints.maxHeight*0.20,width: constraints.maxWidth*0.24,)),
                 GestureDetector(
                     onTap: (){
                     },
-                    child: Text('Activate Tag',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.7)),))
+                    child: Text('Activate Tag',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(1.7)),))
 
               ],
             )
@@ -122,7 +128,7 @@ class _ActivateTagState extends State<ActivateTag> {
                     Padding(
                       padding: EdgeInsets.only(top: height*0.02,bottom: height*0.02),
                       child: Container(
-                          child: Text('Scan Qr Code',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),textAlign: TextAlign.center,)
+                          child: Text('Scan Qr Code',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),textAlign: TextAlign.center,)
                       ),
                     )
                   ],
@@ -139,6 +145,7 @@ class _ActivateTagState extends State<ActivateTag> {
                       cursorColor: Colors.black,
                       decoration: InputDecoration(
                           hintText: 'Activation Code',
+                          suffixStyle: GoogleFonts.montserrat(),
                           fillColor: Colors.white,
                           filled: true,
                           focusedBorder: OutlineInputBorder(
@@ -155,12 +162,12 @@ class _ActivateTagState extends State<ActivateTag> {
                                 style: BorderStyle.solid,
                                 width: 3),
                           ),
-                          labelStyle: const TextStyle(color: Colors.black)),
+                          labelStyle:  GoogleFonts.montserrat(color: Colors.black)),
                     )
                 ),
               ),
               const SizedBox(height: 10,),
-              Text('Enter the activation code',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),textAlign: TextAlign.center,),
+              Text('Enter the activation code',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),textAlign: TextAlign.center,),
               const SizedBox(height: 20,),
               GestureDetector(
                 onTap: (){
@@ -184,7 +191,7 @@ class _ActivateTagState extends State<ActivateTag> {
                     children: [
                       Padding(
                         padding: EdgeInsets.only(left: width*0.05,right: width*0.05,top: height*0.02,bottom: height*0.02),
-                        child: Text('Activate tag',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6),fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                        child: Text('Activate tag',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(1.6),fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
                       )
                     ],
                   ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mdk/bloc/HomepageBloc/homepage_event.dart';
 import 'package:mdk/bloc/profileBloc/profile_bloc.dart';
@@ -72,14 +73,14 @@ bool getTheImage = false;
                 child: ListBody(
                   children: [
                     GestureDetector(
-                      child: const ListTile(
+                      child:  ListTile(
                         leading: Icon(
                           Icons.camera_alt,
                           color: Colors.grey,
                         ),
                         title: Text(
                           "Select from Camera",
-                          style: TextStyle(
+                          style: GoogleFonts.montserrat(
                               color: Colors.black,
                               fontWeight: FontWeight.w500,
                               fontSize: 14),
@@ -90,14 +91,14 @@ bool getTheImage = false;
                       },
                     ),
                     GestureDetector(
-                      child: const ListTile(
+                      child:  ListTile(
                         leading: Icon(
                           Icons.folder,
                           color: Colors.grey,
                         ),
                         title: Text(
                           "Select from Gallery",
-                          style: TextStyle(
+                          style: GoogleFonts.montserrat(
                               color: Colors.black,
                               fontWeight: FontWeight.w500,
                               fontSize: 14),
@@ -164,11 +165,11 @@ bool getTheImage = false;
                                       ),
                                       Padding(
                                         padding:   EdgeInsets.only(top: height* 0.02),
-                                        child: const Text("Upload Profile Picture",style: TextStyle(fontSize: 25,fontWeight: FontWeight.w600),),
+                                        child:  Text("Upload Profile Picture",style: GoogleFonts.montserrat(fontSize: 25,fontWeight: FontWeight.w600),),
                                       ),
                                       Padding(
                                         padding:   EdgeInsets.only(top: height* 0.02),
-                                        child: const Text("Select picture from device/camera",style: TextStyle(fontSize: 18,fontWeight: FontWeight.w400),),
+                                        child:  Text("Select picture from device\n camera",textAlign: TextAlign.center,style: GoogleFonts.montserrat(fontSize: 18,fontWeight: FontWeight.w400),),
                                       ),
                                       Align(
                                         alignment: Alignment.bottomCenter,
@@ -189,7 +190,7 @@ bool getTheImage = false;
                                                   decoration:   BoxDecoration(
                                                     color: Colors.grey.shade300,
                                                     borderRadius: BorderRadius.all(Radius.circular(15)),),
-                                                  child: Text("Select from device",style: const TextStyle(fontWeight: FontWeight.w700),),
+                                                  child: Text("Select from device",style:  GoogleFonts.montserrat(fontWeight: FontWeight.w700),),
                                                 ),
                                               ),
                                               InkWell(
@@ -204,7 +205,7 @@ bool getTheImage = false;
                                                   decoration:   BoxDecoration(
                                                     color: Colors.grey.shade300,
                                                     borderRadius: BorderRadius.all(Radius.circular(15)),),
-                                                  child: const Text("Select from camera",style: TextStyle(fontWeight: FontWeight.w700),),
+                                                  child:  Text("Select from camera",style: GoogleFonts.montserrat(fontWeight: FontWeight.w700),),
                                                 ),
                                               )
                                             ],
@@ -333,7 +334,7 @@ bool getTheImage = false;
                                               style: BorderStyle.solid,
                                               width: 3),
                                         ),
-                                        labelStyle: const TextStyle(color: Colors.black))  ,
+                                        labelStyle:  GoogleFonts.montserrat(color: Colors.black))  ,
                                   ),
 
                                 ),
@@ -397,7 +398,7 @@ bool getTheImage = false;
                                               style: BorderStyle.solid,
                                               width: 3),
                                         ),
-                                        labelStyle: const TextStyle(color: Colors.black)),
+                                        labelStyle:  GoogleFonts.montserrat(color: Colors.black)),
                                   ),
 
                                 ),
@@ -443,7 +444,7 @@ bool getTheImage = false;
                           ),
                         child: Padding(
                           padding: EdgeInsets.only(left: constraints.maxWidth*0.05,right: constraints.maxWidth*0.05,top: constraints.maxHeight*0.02,bottom: constraints.maxHeight*0.02),
-                          child:  Text(editProfile,textAlign: TextAlign.center,style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),),
+                          child:  Text(editProfile,textAlign: TextAlign.center,style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),),
                         ),
                       ),
                     ),
@@ -466,7 +467,7 @@ bool getTheImage = false;
                           children: [
                             Container(
                                 margin:EdgeInsets.only(top: constraints.maxHeight*0.02),
-                                child: Text('There are no links in your profile.',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(2.0),fontWeight: FontWeight.bold),)),
+                                child: Text('There are no links in your profile.',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(2.0),fontWeight: FontWeight.bold),)),
                             const SizedBox(height: 20,),
                             GestureDetector(
                               onTap: (){
@@ -496,7 +497,7 @@ bool getTheImage = false;
                             ),
                             Container(
                                 margin:EdgeInsets.only(top: constraints.maxHeight*0.02,bottom: constraints.maxHeight*0.02),
-                                child: Text('Add link',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),)),
+                                child: Text('Add link',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(1.6)),)),
                           ],
                         ),
                       ),
@@ -586,7 +587,7 @@ bool getTheImage = false;
                           child: Text(
                             "Share Profile",
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontWeight: FontWeight.bold,fontSize: ResponsiveFlutter.of(context).fontSize(2.5)),
+                            style: GoogleFonts.montserrat(fontWeight: FontWeight.bold,fontSize: ResponsiveFlutter.of(context).fontSize(2.5)),
                           ),
                         ),
                       ),
@@ -654,7 +655,7 @@ bool getTheImage = false;
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: constraints.maxWidth*0.05,right: constraints.maxWidth*0.05,top: constraints.maxHeight*0.02,bottom: constraints.maxHeight*0.02),
-                      child: Text('tapitek/sudhanshu_juyal'),
+                      child: Text('tapitek/sudhanshu_juyal',style: GoogleFonts.montserrat(fontWeight: FontWeight.w100),),
                     )
                   ],
                 ),
@@ -677,7 +678,7 @@ bool getTheImage = false;
                   )),
                   Padding(
                     padding: EdgeInsets.only(left: constraints.maxWidth*0.05,right: constraints.maxWidth*0.05,top: constraints.maxHeight*0.02,bottom: constraints.maxHeight*0.02),
-                    child: Text('Share Profile',style: TextStyle(fontSize: ResponsiveFlutter.of(context).fontSize(1.8)),),
+                    child: Text('Share Profile',style: GoogleFonts.montserrat(fontSize: ResponsiveFlutter.of(context).fontSize(1.8)),),
                   )
                 ],
               ),
@@ -704,6 +705,7 @@ bool getTheImage = false;
               border: InputBorder.none,
 
               hintText: 'Name',
+            suffixStyle: GoogleFonts.montserrat(fontWeight: FontWeight.w100)
 
           ),
         ),
@@ -724,6 +726,7 @@ bool getTheImage = false;
               border: InputBorder.none,
 
               hintText: 'Write something about..',
+                suffixStyle: GoogleFonts.montserrat(fontWeight: FontWeight.w100)
 
             ),
           ),
