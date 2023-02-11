@@ -40,9 +40,8 @@ class HomePage extends StatelessWidget
           appBar: AppBar(
             leading: Builder(
               builder: (BuildContext context) {
-               return Badge(
-               position: BadgePosition.topEnd(top: 15, end: 15),
-                badgeContent: null,
+               return SafeArea(
+
                 child: IconButton(
                 icon: Icon(Icons.menu),
                 onPressed: () {

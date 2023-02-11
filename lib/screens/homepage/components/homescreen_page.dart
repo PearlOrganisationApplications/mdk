@@ -74,21 +74,21 @@ class _BottomScreenPageState extends State<BottomScreenPage> {
             items:  [
               BottomNavigationBarItem(
                 backgroundColor:Colors.white,
-                activeIcon: Lottie.asset("assets/animation/homeicon.json",width: 40,height: 40),
-                icon:  Lottie.asset("assets/animation/homeicon.json",width: 30,height: 30),
+                activeIcon: Icon(Icons.home,),
+                icon:  Icon(Icons.home,),
                 label: 'Home',
               ),
               BottomNavigationBarItem(
                 backgroundColor:Colors.white,
-                activeIcon:  Lottie.asset("assets/animation/activateicon.json",width: 40,height: 40),
-                icon:  Lottie.asset("assets/animation/activateicon.json",width: 30,height: 30),
+                activeIcon:  Icon(Icons.switch_camera_sharp,),
+                icon: Icon(Icons.switch_camera_sharp,),
                 label: 'Activate Tag',
               ),
               BottomNavigationBarItem(
                 backgroundColor:Colors.white,
 
-                activeIcon:  Lottie.asset("assets/animation/profileiconselected.json",width: 40,height: 40),
-                icon:  Lottie.asset("assets/animation/profileiconselected.json",width: 30,height: 30),
+                activeIcon:  Icon(Icons.manage_accounts,),
+                icon:  Icon(Icons.manage_accounts,),
                 label: 'Profile',
               ),
             ],
